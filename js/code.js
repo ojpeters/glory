@@ -18,7 +18,7 @@ function capturePhoto() {
 	
 		// Take picture using device camera and retrieve image as base64-encoded string
 		navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, encodingType : Camera.EncodingType.JPEG,
-		targetWidth: 768,
+		targetWidth: 500,
 		targetHeight: 288,
 		correctOrientation: true,
 		destinationType: Camera.DestinationType.FILE_URI });
@@ -30,7 +30,7 @@ function capturePhoto() {
       // Retrieve image file location from specified source
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
         destinationType: destinationType.FILE_URI,
-		targetWidth: 768,
+		targetWidth: 500,
 		targetHeight: 288,
         sourceType: source });
     }
@@ -43,17 +43,9 @@ function onPhotoDataSuccess(imageURI) {
 		   //var imgProfile = document.getElementById('imgProfile');        
 		//imgProfile.style.display = 'block';
         //imgProfile.src = imageURI;
-		$('#mimage').append("<img with='60' height='60' src="+imageURI+" />");
-		sessionStorage.setItem('imagepath', imageURI);//store value in session 
-		
-      		 
-		   var imgProfile = document.getElementById('mimage');
-
-        // Show the captured photo
-        // The inline CSS rules are used to resize the image
-        
-        //imgProfile.src = imageURI;
-		//sessionStorage.setItem('imagepath', imageURI);//store value in session 
+		$('#mimage').append("<img with='100' height='100' src="+imageURI+" />");
+		sessionStorage.setItem('imagepath', imageURI);//store value in session       		 
+		   var imgProfile = document.getElementById('mimage');     
 		
 		
 }
@@ -149,14 +141,13 @@ alert(target);
 								var returnedresult=result.split(":");// we separated it
 								var newsid=returnedresult[0];
 								//alert("we got an id "+newsid);
-								uploadPhoto(imageitem,newsid);
-								
+								uploadPhoto(imageitem,newsid);								
 								//movePic(imageitem);								
 								
 							}
 					},
 					error:  function(r) {
-						alert("error"+r.responseCode);
+						//alert("error"+r.responseCode);
 						//$('#response').html("ErrorText: "+ err);
 						$("#response").append("Error found: code:"+r.responseCode+"Response = " + r.response+"Sent = " + r.bytesSent);
 							
@@ -223,7 +214,7 @@ function uploadPhoto(imageURI,newsid) {
 
 function uploadsuccess(r) {
     
-	$("#response").append("Upload successful: code:"+r.responseCode+"Response = " + r.response+"Sent = " + r.bytesSent);
+	$("#response").append("Pictured upload successful");
 	//sessionStorage.getItem('imagepath') = null;
    
 }
