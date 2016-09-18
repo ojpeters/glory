@@ -133,8 +133,8 @@ alert(target);
 						 								
 								//$('#postform button[type="submit"]').attr("disabled",!1).removeClass("processing"),
 							
-								$("#postform").resetForm(),
-								$('#postform button[type="button"]').attr("disabled",!0), 
+								//$("#postform").resetForm();
+								//$('#postform button[type="button"]').attr("disabled",!0), 
 							//$("#postform .multi-submit-btn").css("display","none")								
 								
 								//handle images//check if image is captured an dupload
@@ -166,6 +166,7 @@ alert(target);
 	
 
 } 
+/*
 function docheck(){
 	$("#postform").validate({
 			errorClass:"error-view",validClass:"success-view",
@@ -192,94 +193,8 @@ function docheck(){
 			})
 			
 }
-
-/*$(document).ready(function(){
-	//posting
-	alert("starting")
-
-	function e(){
-		$("#postform .logic-block-checkbox").change(function(){
-		$(".multi-next-btn").css("display","block");
-		}).change()
-		}
-		
-		$("#postform").validate({
-			errorClass:"error-view",validClass:"success-view",
-			errorElement:"span",onkeyup:!1,onclick:!1,
-			rules:{name:{required:!0},
-					category:{required:!0},
-					message:{required:!0},
-					title:{required:!0},
-					airline_flight_number:{required:!0}
-					
-				},
-				messages:{
-						name:{required:"Please enter your name"},
-						category:{required:"Please enter your category"},
-						message:{required:"Please the post details"},						
-						title:{required:"Please enter  title  for this post"},
-						airline_flight_number:{required:"Please enter a flight number"}
-						
-						},
-				highlight:function(e,s,t){
-						$(e).closest(".input").removeClass(t).addClass(s),
-						($(e).is(":checkbox")||$(e).is(":radio"))&&$(e).closest(".check").removeClass(t).addClass(s)
-						},
-				unhighlight:function(e,s,t){
-						$(e).closest(".input").removeClass(s).addClass(t),
-						($(e).is(":checkbox")||$(e).is(":radio"))&&$(e).closest(".check").removeClass(s).addClass(t)
-						},
-				errorPlacement:function(e,s){
-						$(s).is(":checkbox")||$(s).is(":radio")?$(s).closest(".check").append(e):$(s).closest(".unit").append(e)
-				},
-				submitHandler:function(){ alert("submitting now");
-				postData();
-				}
-			}),
-			
-				$("form.j-multistep").length&&$("form.j-multistep").each(function(){
-					var s=$(this).attr("id"),
-						t=$("#"+s+" fieldset").length,
-						i=$("#"+s+" .step").length,
-						a=$("#"+s+" .multi-next-btn"),
-						r=$("#"+s+" .multi-prev-btn"),
-						l=$("#"+s+" .multi-submit-btn"),
-						d=$("#"+s+" .logic-block-checkbox").closest("fieldset").index("fieldset");
-						
-					$("#"+s+" fieldset").eq(0).addClass("active-fieldset"),
-					i&&$("#"+s+" .step").eq(0).addClass("active-step"),
-					$("#"+s+" fieldset").eq(0).hasClass("active-fieldset")&&(l.css("display","none"),
-					r.css("display","none"),
-					e()),
-					l.click(function(){
-						for(var e=$("#"+s+" fieldset").length,
-						t=$("#"+s).find("fieldset.active-fieldset").index("fieldset");e>t+1;
-						)
-						$("#"+s+" fieldset").eq(e-1).find('select, textarea, input[type="text"], input[type="email"]').val(""),
-						$("#"+s+" fieldset").eq(e-1).find('input[type="radio"], input[type="checkbox"]').prop("checked",!1),
-						e--
-						}),
-					a.on("click",function(){
-							return 1!=$("#"+s).valid()?!1:($("#"+s+" fieldset.active-fieldset").removeClass("active-fieldset").next("fieldset").addClass("active-fieldset"),i&&$("#"+s+" .step.active-step").removeClass("active-step").addClass("passed-step").next(".step").addClass("active-step"),
-							r.css("display","block"),
-							$("#takePicBtn").css("display","block"),
-							$("#"+s+" fieldset").eq(t-1).hasClass("active-fieldset")&&(l.css("display","block"),a.css("display","none")),void 0)
-					}),
-					r.on("click",function(){
-								$("#"+s+" fieldset.active-fieldset").removeClass("active-fieldset").prev("fieldset").addClass("active-fieldset"),
-								i&&$("#"+s+" .step.active-step").removeClass("active-step").prev(".step").removeClass("passed-step").addClass("active-step"),
-								$("#"+s+" fieldset").eq(0).hasClass("active-fieldset")&&r.css("display","none"),
-$("#"+s+" fieldset").eq(d-1).hasClass("active-fieldset")&&(l.css("display","none"),
-								a.css("display","block")),
-								$("#"+s+" fieldset").eq(t-2).hasClass("active-fieldset")&&(l.css("display","none"),
-								a.css("display","block"))
-					})
-				})
-				
-				
-  });
-  
 */
+
   /////////////image stuff
   ///////////////
 function uploadPhoto(imageURI,newsid) {
