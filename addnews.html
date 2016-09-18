@@ -12,55 +12,35 @@
 		<script src="phonegap.js"></script>
 	</head>
 	<body>
-	<!---- start-wrap---->
-		<!---- start-header---->
-		<div class="header">
-				<div class="wrap">
-			<!---- start-logo---->
-				<div class="logo">
-					<a href="#">
-						<img src="images/glorious-women-wonders.jpg" title="Glorious" />
-					</a>
-				</div>
-			<!---- //End-logo---->
-			<!----start-top-contact-info---->
-			<div class="top-contact-info">
-				<!----start-top-social-icons---->
-				<div class="top-social-icons">
-					<ul>
-						<li><a class="flicker" href="#"><span> </span></a></li>
-						<li><a class="stub" href="#"><span> </span></a></li>
-						<li><a class="face" href="https://www.facebook.com/gwomenofwonders"><span> </span></a></li>
-						<li><a class="twitter" href="https://twitter.com/gwomenofwonders"><span> </span></a></li>
-					</ul>
-				</div>
-				<!----//End-top-social-icons---->
-				<div class="clear"> </div>
-			</div>
-			<div class="clear"> </div>
-			<!----end-top-contact-info---->
-		</div>
-		<!---- //End-header---->
-	</div>
 	<!----start-slide-banner---->
 	<div class="slide-banner">
 		<div class="wrap">
-			
+			<div class="slide-banner-left">
+				<img src="images/logo1.jpg" alt="Glorious women banner" />
+				<!----slider-script---->
+				<!----//End-script---->
+				
+			</div>
 			<div class="slide-banner-right">
-				<h1>Glorious Women of Wonders Prayer Ministries</h1>				
-				<ul>					
+				<h1>Glorious Women of Wonders Prayer Ministries</h1>
+				
+				<ul>
+					<li><a class="slide-bbtn" href="addnews.html">Post Article</a></li>
 					<li><a class="slide-sbtn" href="index.html">Daily Prayers</a></li>
 				</ul>
 			</div>
 			<div class="clear"> </div>
 		</div>
 	</div>
+	<!----//End-slide-banner---->
 
 
 	<!----start-news-letter--->
 	<div class="news-letter">
 		<div class="wrap">
+		
 			<div class="news-letter-left">
+			<div class="clear"> </div>
 				<h3>Post  Article</h3>
 			</div>
 			<div id="article" class="news-letter-right">
@@ -86,10 +66,10 @@
 						</select>
 					<div class="slide-banner-right">			
 				
-						<ul>
-							<li><button type="button" class="slide-artbtn" onclick="return postData();">Post Article</button></li>
+						<ul>							
 							<li><button type="button" class="slide-sbtn" id="takePicBtn" onclick="return capturePhoto();">Take Picture</button></li>
 							<li><button type="button"class="slide-sbtn" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Add Pix From Phone</button></li>
+							<li><button type="button" class="slide-artbtn" onclick="return postData();">Post Article</button></li>
 						</ul>
 					</div>
 			
