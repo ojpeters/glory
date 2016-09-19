@@ -201,7 +201,7 @@ function uploadPhoto(imageURI,newsid) {
 		options.params = params;
 
 		var ft = new FileTransfer();
-		ft.upload(imageURI, encodeURI("http://www.sportsmangist.com/app/updatepost.php"), uploadsuccess, fail, options);
+		ft.upload(imageURI, encodeURI("http://www.gloriouswomenofwonders.org/app/updatepost.php"), uploadsuccess, fail, options);
 		$('#response').append("Image uploaded successful");	
 	}else{
 		$('#response').append($newsid);
