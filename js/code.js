@@ -1,7 +1,7 @@
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value
 var imagedata="";
-
+showposts();
  
 document.addEventListener("deviceready", onDeviceReady, false);
  
@@ -23,9 +23,10 @@ function showposts(){
                 $('#posts').html(response);
             },
             error: function(error) {
-                console.log(error);
+                alert("error showing posts"+error);
 				$("#error").append(error);
             }
+	});
 	
 }
 // A button will call this function
@@ -46,11 +47,12 @@ function capturePhoto() {
 }
     function getPhoto() {
       // Retrieve image file location from specified source
+	  alert("attempt to get photo");
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
         destinationType: destinationType.FILE_URI,
 		targetWidth: 400,
 		targetHeight: 288,
-        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY });//PHOTOLIBRARY/SAVEDPHOTOALBUM
+        sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM });//PHOTOLIBRARY/SAVEDPHOTOALBUM
     }
 
 function onPhotoDataSuccess(imageURI) {
