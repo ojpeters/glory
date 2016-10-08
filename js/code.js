@@ -9,6 +9,24 @@ function onDeviceReady() {
     pictureSource = navigator.camera.PictureSourceType;
     destinationType = navigator.camera.DestinationType;
 	//$.mobile.initializePage();
+	showposts();
+}
+
+//on device ready call this
+function showposts(){
+	$.ajax({
+            type: 'POST',
+            url: 'http://www.gloriouswomenofwonders.org/app/getcats.php',
+            dataType: 'text',
+            contentType: 'application/text; charset=utf-8',
+            success: function(response) {
+                $('#posts').html(response);
+            },
+            error: function(error) {
+                console.log(error);
+				$("#error").append(error);
+            }
+	
 }
 // A button will call this function
 //
@@ -26,13 +44,13 @@ function capturePhoto() {
 
 	
 }
-    function getPhoto(source) {
+    function getPhoto() {
       // Retrieve image file location from specified source
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
         destinationType: destinationType.FILE_URI,
-		targetWidth: 500,
+		targetWidth: 400,
 		targetHeight: 288,
-        sourceType: source });
+        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY });//PHOTOLIBRARY/SAVEDPHOTOALBUM
     }
 
 function onPhotoDataSuccess(imageURI) {
