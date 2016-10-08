@@ -9,7 +9,7 @@ function onDeviceReady() {
     pictureSource = navigator.camera.PictureSourceType;
     destinationType = navigator.camera.DestinationType;
 	//$.mobile.initializePage();
-	showposts();
+	//showposts();
 }
 
 //on device ready call this
@@ -41,19 +41,20 @@ function capturePhoto() {
 		targetHeight: 288,
 		correctOrientation: true,
 		destinationType: Camera.DestinationType.FILE_URI });
-		
-
 	
 }
-    function getPhoto() {
-      // Retrieve image file location from specified source
-	  alert("attempt to get photo");
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+// Retrieve image file location from specified source
+ function getPhoto() {		
+      
+     navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, encodingType : Camera.EncodingType.JPEG, 
         destinationType: destinationType.FILE_URI,
-		targetWidth: 400,
+		targetWidth: 468,
 		targetHeight: 288,
-        sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM });//PHOTOLIBRARY/SAVEDPHOTOALBUM
+		correctOrientation: true,
+        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY });
     }
+	
+    
 
 function onPhotoDataSuccess(imageURI) {
 
@@ -71,8 +72,9 @@ function onPhotoDataSuccess(imageURI) {
 }
 // Called if something bad happens.
 // 
-function onFail(message) {    
-	$('#response').append(message);	
+function onFail(message) { 
+alert("get get pix"+message);   
+	$('#response').append(message);		
 }
 
 function movePic(file){ 
