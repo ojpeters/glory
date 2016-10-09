@@ -37,8 +37,8 @@ function capturePhoto() {
 	
 		// Take picture using device camera and retrieve image as base64-encoded string
 		navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, encodingType : Camera.EncodingType.JPEG,
-		targetWidth: 500,
-		targetHeight: 288,
+		targetWidth: 550,
+		targetHeight: 309,
 		correctOrientation: true,
 		destinationType: Camera.DestinationType.FILE_URI });
 	
@@ -48,8 +48,8 @@ function capturePhoto() {
       
      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, encodingType : Camera.EncodingType.JPEG, 
         destinationType: destinationType.FILE_URI,
-		targetWidth: 468,
-		targetHeight: 288,
+		targetWidth: 550,
+		targetHeight: 309,
 		correctOrientation: true,
         sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY });
     }
@@ -61,9 +61,7 @@ function onPhotoDataSuccess(imageURI) {
 
  $('#postform #response').html("pic captured");
         // Uncomment to view the base64 encoded image data,      		 
-		   //var imgProfile = document.getElementById('imgProfile');        
-		//imgProfile.style.display = 'block';
-        //imgProfile.src = imageURI;
+		  
 		$('#mimage').append("<img with='100' height='100' src="+imageURI+" />");
 		sessionStorage.setItem('imagepath', imageURI);//store value in session       		 
 		   var imgProfile = document.getElementById('mimage');     
@@ -152,20 +150,24 @@ alert(target);
 							//$("#postform .multi-submit-btn").css("display","none")								
 								
 								//handle images//check if image is captured an dupload
+								var wehaveimage=false;
 							if (sessionStorage.getItem('imagepath') == null){
 								// myValue was not set
 								$("#response").append("Image NOT set:");
 							}else{
 								// myValue was set	
-															
+									wehaveimage=true;						
 								var imageitem=sessionStorage.getItem('imagepath');
 								$("#response").append("uploading image");
 								var returnedresult=result.split(":");// we separated it
 								var newsid=returnedresult[0];
 								//alert("we got an id "+newsid);
-								uploadPhoto(imageitem,newsid);								
-								//movePic(imageitem);								
-								
+								if(wehaveimage){
+									uploadPhoto(imageitem,newsid);								
+									//movePic(imageitem);
+								}									
+								//clear fields
+								cleanUp();
 							}
 					},
 					error:  function(r) {
@@ -240,7 +242,15 @@ function uploadsuccess(r) {
 	//sessionStorage.getItem('imagepath') = null;
    
 }
-
+//clean up
+function cleanUp() {
+		imagedata = "";
+		$("#postart").removeAttr("disabled").button("refresh");
+		$("#title").val("");
+		$("#message").val("");
+		sessionStorage.getItem('imagepath') == null;
+		//$("#takePicBtn").text("Add Pic").button("refresh");
+	}
 function fail(error) {
     
 	$("#response").append("Upload failed:An error has occurred: Code = " + error.code+"upload error source " + error.source+"upload error target " + error.target);
